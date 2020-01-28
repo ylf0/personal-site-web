@@ -1,6 +1,5 @@
 import React from 'react';
 
-import TicTacToe from './views/TicTacToe/TicTacToe.container'
 import './App.css';
 
 const logo = require('./logo.svg')
@@ -13,7 +12,6 @@ function App() {
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <TicTacToe/>
         <a
           className="App-link"
           href="https://reactjs.org"
