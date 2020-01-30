@@ -1,7 +1,7 @@
 import Axios, { AxiosError } from 'axios'
 
 export type IApiResponseType<T> = {
-  success: boolean
+  success: number
   result: T
   message: string
 }
