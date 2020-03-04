@@ -1,7 +1,10 @@
 import * as React from 'react'
 
 import { createArticle, getArticles } from '../../api/article.api'
-import styles from './Panel.module.scss'
+
+import Input from '../../components/Input/Input.component'
+
+import styles from './Edit.module.scss'
 
 interface IState {
   content: any
@@ -17,9 +20,10 @@ export default class Panel extends React.Component<{}, IState> {
       content: null,
       defaultContent: ''
     }
-    // functions
-    this.handleTextAreaChange = this.handleTextAreaChange.bind(this)
+
     this.createArticle = this.createArticle.bind(this)
+    this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleTextAreaChange = this.handleTextAreaChange.bind(this)
   }
 
   previews: any = null
@@ -44,16 +48,32 @@ export default class Panel extends React.Component<{}, IState> {
     await createArticle(content)
   }
 
+  handleInputChange(e: any) {
+    console.info(e.target.value)
+  }
+
   render () {
     const { defaultContent } = this.state
     return (
       <div className={styles.container}>
-        <main>
-          <textarea
-            spellCheck={false}
-            defaultValue={defaultContent}
-            onChange={this.handleTextAreaChange}
+        <header>
+          <Input
+            className={styles['left-side']}
+            placeholder="输入标题"
+            onChange={this.handleInputChange}
           />
+          <div className={styles['right-side']}>
+            <span>Opreations Area</span>
+          </div>
+        </header>
+        <main>
+          <div className={styles['writing-area']}>
+            <textarea
+              spellCheck={false}
+              defaultValue={defaultContent}
+              onChange={this.handleTextAreaChange}
+            />
+          </div>
           <div className={styles['preview-area']} ref={(refs) => this.previews = refs}/>
         </main>
         <footer>

@@ -1,0 +1,61 @@
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+
+    width: 100%;
+    height: 64px;
+
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    z-index: 1;
+    .left-side, .right-side {
+      flex: 1;
+    }
+    .left-side {
+      border-right: 1px solid orange;
+    }
+  }
+  main {
+    display: flex;
+    margin-top: 64px;
+    height: calc(100vh - 48px);
+    .writing-area, .preview-area {
+      flex: 1;
+      height: calc(100% - 24px);
+      overflow-y: scroll;
+    }
+    textarea {
+      padding: 12px;
+      width: 100%;
+      height: 100%;
+
+      font-size: 16px;
+      line-height: 22px;
+
+      border: none;
+      resize: none;
+      outline: none;
+    }
+    .preview-area {
+      padding: 12px;
+      border-left: 1px solid #ddd;
+    }
+  }
+  footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 47px;
+
+    border-top: 1px solid #ddd;
+  }
+}
