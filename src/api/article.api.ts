@@ -1,7 +1,12 @@
 import axios from './agent'
 
-export const createArticle = async (content: string) => {
-  return axios.post('/article', { content })
+interface IArticle {
+  title?: string
+  content: string
+}
+
+export const createArticle = async (content: IArticle) => {
+  return axios.post('/article', content)
 }
 
 export const getArticles = async (search?: string) => {

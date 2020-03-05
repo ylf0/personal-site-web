@@ -9,7 +9,7 @@
 
     display: flex;
 
-    width: 100%;
+    width: calc(100% - 24px);
     height: 64px;
 
     border-bottom: 1px solid #ddd;
@@ -18,22 +18,20 @@
     .left-side, .right-side {
       flex: 1;
     }
-    .left-side {
-      border-right: 1px solid orange;
-    }
   }
   main {
     display: flex;
-    margin-top: 64px;
-    height: calc(100vh - 48px);
+    padding-top: 64px;
+    height: calc(100vh - 112px);
     .writing-area, .preview-area {
-      flex: 1;
       height: calc(100% - 24px);
-      overflow-y: scroll;
+    }
+    .writing-area {
+      width: 50%;
     }
     textarea {
       padding: 12px;
-      width: 100%;
+      width: calc(100% - 24px);
       height: 100%;
 
       font-size: 16px;
@@ -44,8 +42,10 @@
       outline: none;
     }
     .preview-area {
+      width: calc(50% - 24px);
       padding: 12px;
       border-left: 1px solid #ddd;
+      overflow-y: scroll;
     }
   }
   footer {
@@ -54,8 +54,28 @@
     bottom: 0;
 
     width: 100%;
-    height: 47px;
+    height: 46px;
 
     border-top: 1px solid #ddd;
+    .save-btn {
+      position: absolute;
+      top: 7px;
+      right: 20px;
+
+      display: inline-block;
+      padding: 0 18px;
+      height: 32px;
+
+      line-height: 32px;
+      text-align: center;
+      font-size: 14px;
+      white-space: nowrap;
+
+      color: #fff;
+      background-color: #1890ff;
+
+      border-radius: 4px;
+      cursor: pointer;
+    }
   }
 }

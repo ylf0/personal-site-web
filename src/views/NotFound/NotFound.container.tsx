@@ -1,13 +1,9 @@
 import * as React from 'react'
 
-interface IProps {
-  name: string
-}
-
-const NotFound: React.FunctionComponent<IProps> = ({ name }) => {
+const NotFound: React.FunctionComponent = () => {
   return (
     <div>
-      <h2>Not Found {name}</h2>
+      <h2>Not Found</h2>
     </div>
   )
 }

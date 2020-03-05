@@ -7,17 +7,19 @@ import Input from '../../components/Input/Input.component'
 import styles from './Edit.module.scss'
 
 interface IState {
-  content: any
+  title: string
+  content: string
   defaultContent: string
 }
 
 const md = require('markdown-it')()
 
-export default class Panel extends React.Component<{}, IState> {
+export default class Edit extends React.Component<{}, IState> {
   constructor(props: {}) {
     super(props)
     this.state = {
-      content: null,
+      title: '',
+      content: '',
       defaultContent: ''
     }
 
@@ -31,8 +33,8 @@ export default class Panel extends React.Component<{}, IState> {
   async componentDidMount() {
     const { data } = await getArticles()
     const { result } = data
-    this.setState({ defaultContent: result[4].content })
-    this.previews.innerHTML = md.render(result[4].content)
+    this.setState({ defaultContent: result[1].content, title: result[1].title })
+    this.previews.innerHTML = md.render(result[1].content)
   }
 
   handleTextAreaChange (e: any) {
@@ -42,24 +44,27 @@ export default class Panel extends React.Component<{}, IState> {
   }
 
   async createArticle() {
-    const { content } = this.state
+    const { title, content } = this.state
     if (!content) return
 
-    await createArticle(content)
+    await createArticle({ title, content })
   }
 
-  handleInputChange(e: any) {
-    console.info(e.target.value)
+  handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    if (e.target && typeof e.target.value === 'string') {
+      this.setState({ title: e.target.value })
+    }
   }
 
   render () {
-    const { defaultContent } = this.state
+    const { defaultContent, title } = this.state
     return (
       <div className={styles.container}>
         <header>
           <Input
             className={styles['left-side']}
             placeholder="输入标题"
+            content={title}
             onChange={this.handleInputChange}
           />
           <div className={styles['right-side']}>
@@ -77,7 +82,7 @@ export default class Panel extends React.Component<{}, IState> {
           <div className={styles['preview-area']} ref={(refs) => this.previews = refs}/>
         </main>
         <footer>
-          <button onClick={this.createArticle}>保存</button>
+          <div className={styles['save-btn']} onClick={this.createArticle}>保存</div>
         </footer>
       </div>
     )
