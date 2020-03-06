@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { createArticle, getArticles } from '../../api/article.api'
 
-import Input from '../../components/Input/Input.component'
+import { Input } from '../../components'
 
 import styles from './Edit.module.scss'
 

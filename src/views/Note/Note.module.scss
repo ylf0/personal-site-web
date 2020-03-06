@@ -1,0 +1,26 @@
+.note-module {
+  padding: 20px;
+  width: 100%;
+  height: 100vh;
+  .create {
+    width: 133px;
+    height: 190px;
+
+    line-height: 190px;
+    text-align: center;
+    color: #808080;
+
+    border: 1px dashed #808080;
+    border-radius: 2px;
+
+    cursor: pointer;
+    transition: all 0.6s;
+    &:hover {
+      color: #1890ff;
+      border-color: #1890ff;
+    }
+    i {
+      font-size: 24px;
+    }
+  }
+}
