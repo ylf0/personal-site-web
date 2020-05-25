@@ -4,14 +4,17 @@ import styles from './Button.module.scss'
 
 interface IProps {
   name: string
-  type?: 'normal' | 'confirm' | 'danger'
+  className?: string
+  type?: 'confirm' | 'danger' | 'ghost'
   onClick: Function
 }
 
 const Button: React.FunctionComponent<IProps> = (props) => {
-  const { name, type, onClick } = props
+  const { name, className, type, onClick } = props
+  let cls = type ? `${styles.btn} ${styles[type]}` : styles.btn
+  if (className) cls += ` ${className}`
   return (
-    <div className={styles.btn} onClick={() => onClick()}>{name}</div>
+    <div className={cls} onClick={() => onClick()}>{name}</div>
   )
 }
 

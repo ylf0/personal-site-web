@@ -1,0 +1,41 @@
+.cover {
+  position: relative;
+  width: 133px;
+  height: 190px;
+  .cover-image {
+    width: 133px;
+    height: 190px;
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .info {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: calc(100% - 20px);
+    color: #fff;
+
+    z-index: 2;
+    .title {
+      font-size: 18px;
+      line-height: 26px;
+      font-weight: 500;
+    }
+  }
+  .shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent);
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    z-index: 1;
+  }
+}

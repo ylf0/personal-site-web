@@ -9,12 +9,19 @@ import Note from './views/Note/Note.container'
 import Edit from './views/Edit/Edit.container'
 import About from './views/About/About.container'
 import NotFound from './views/NotFound/NotFound.container'
+import Login from './views/Login/Login.component'
 import './App.css';
 
 function App() {
   return (
     <Router>
       <Switch>
+        <Route path="/" exact>
+          <Edit/>
+        </Route>
+        <Route path="/login">
+          <Login/>
+        </Route>
         <Route path="/note">
           <Note/>
         </Route>

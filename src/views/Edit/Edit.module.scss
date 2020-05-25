@@ -1,81 +1,17 @@
-.container {
-  position: relative;
+.edit {
+  padding: 20px;
+  padding-top: 62px;
   width: 100vw;
-  height: 100vh;
-  header {
+  box-sizing: border-box;
+  .operation-panel {
     position: fixed;
     top: 0;
-    left: 0;
-
-    display: flex;
-
-    width: calc(100% - 24px);
-    height: 64px;
-
-    border-bottom: 1px solid #ddd;
-    background-color: #fff;
-    z-index: 1;
-    .left-side, .right-side {
-      flex: 1;
-    }
+    left: calc(50% - 182px);
   }
-  main {
-    display: flex;
-    padding-top: 64px;
-    height: calc(100vh - 112px);
-    .writing-area, .preview-area {
-      height: calc(100% - 24px);
-    }
-    .writing-area {
-      width: 50%;
-    }
-    textarea {
-      padding: 12px;
-      width: calc(100% - 24px);
-      height: 100%;
-
-      font-size: 16px;
-      line-height: 22px;
-
-      border: none;
-      resize: none;
-      outline: none;
-    }
-    .preview-area {
-      width: calc(50% - 24px);
-      padding: 12px;
-      border-left: 1px solid #ddd;
-      overflow-y: scroll;
-    }
-  }
-  footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 46px;
-
-    border-top: 1px solid #ddd;
-    .save-btn {
-      position: absolute;
-      top: 7px;
-      right: 20px;
-
-      display: inline-block;
-      padding: 0 18px;
-      height: 32px;
-
-      line-height: 32px;
-      text-align: center;
-      font-size: 14px;
-      white-space: nowrap;
-
-      color: #fff;
-      background-color: #1890ff;
-
-      border-radius: 4px;
-      cursor: pointer;
-    }
+  .edit-area {
+    margin: 0 auto;
+    width: 60%;
+    font-size: 16px;
+    line-height: 1.5;
   }
 }
