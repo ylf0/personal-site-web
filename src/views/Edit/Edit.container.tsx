@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, SyntheticEvent } from 'react'
 import { Editor, EditorState, RichUtils, DraftEditorCommand } from 'draft-js'
 
 import OperationPanel from '../../components/OperationPanel/index.component'
@@ -28,6 +28,10 @@ const Edit: React.FC<IProps> = () => {
     setEditorState(RichUtils.toggleInlineStyle(editorState, key.toUpperCase()))
   }
 
+  function testFocus(e: SyntheticEvent) {
+    console.info(e)
+  }
+
   return (
     <div className={styles.edit}>
       <OperationPanel className={styles['operation-panel']} onClick={handleOperationClick} />
@@ -36,6 +40,7 @@ const Edit: React.FC<IProps> = () => {
           editorState={editorState}
           handleKeyCommand={handleKeyCommand}
           onChange={setEditorState}
+          onFocus={testFocus}
         />
       </div>
     </div>

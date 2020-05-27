@@ -14,6 +14,12 @@ interface IButtonProps {
 }
 
 const operationLists = [
+  { key: 'h1', value: '大标题' },
+  { key: 'h2', value: '中标题' },
+  { key: 'h3', value: '小标题' },
+  { key: 'quote', value: '引用' },
+  { key: 'ul', value: '无序列表' },
+  { key: 'ol', value: '有序列表' },
   { key: 'bold', value: '加粗' },
   { key: 'italic', value: '斜体' },
   { key: 'underline', value: '下划线' },
