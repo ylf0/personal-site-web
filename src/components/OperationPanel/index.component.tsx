@@ -4,7 +4,7 @@ import styles from './index.module.scss'
 
 interface IProps {
   className?: string
-  onClick: (key: string) => void
+  onClick?: (key: string) => void
 }
 
 interface IButtonProps {
@@ -45,8 +45,14 @@ const OperationPanel: React.FC<IProps> = (props) => {
 
   function getOperationBtn() {
     return operationLists.map(({ key, value }) => (
-      <Button key={key} id={key} title={value} onClick={onClick} />
+      <Button key={key} id={key} title={value} onClick={handleClick} />
     ))
+  }
+
+  function handleClick() {
+    if (typeof onClick === 'function') {
+      onClick('key')
+    }
   }
 
   return (
