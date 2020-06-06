@@ -1,9 +1,8 @@
 import React from 'react'
 
-import OperationPanel from '../../components/OperationPanel/index.component'
+import OperationPanel from '@/components/OperationPanel/index.component'
 
 import styles from './Edit.module.scss'
-import 'draft-js/dist/Draft.css'
 
 interface IProps {}
 
