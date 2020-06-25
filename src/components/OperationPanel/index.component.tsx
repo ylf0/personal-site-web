@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
+
+import { counterStore, todoStore } from '@/store'
 
 import styles from './index.module.scss'
 
@@ -28,6 +30,9 @@ const operationLists = [
   { key: 'code', value: '代码' },
   { key: 'align', value: '对齐' },
   { key: 'color', value: '颜色' },
+  { key: 'add-todo', value: 'Add Todo' },
+  { key: 'del-todo', value: 'Del Todo' },
+  { key: 'toggle-todo', value: 'Toggle Todo' }
 ]
 
 const Button: React.FC<IButtonProps> = (props) => {
@@ -42,14 +47,27 @@ const Button: React.FC<IButtonProps> = (props) => {
 
 const OperationPanel: React.FC<IProps> = (props) => {
   const { className, onClick } = props
+  const [count, setCount] = useState(counterStore.getState())
+
+  counterStore.subscribe(() => {
+    setCount(counterStore.getState())
+  })
 
   function getOperationBtn() {
     return operationLists.map(({ key, value }) => (
-      <Button key={key} id={key} title={value} onClick={handleClick} />
+      <Button key={key} id={key} title={value} onClick={key => handleClick(key)} />
     ))
   }
 
-  function handleClick() {
+  function handleClick(key: string) {
+    if (key === 'add-todo') {
+      todoStore.dispatch({ type: 'ADD_TODO', text: 'Add Todo' })
+    }
+
+    if (key === 'del-todo') {
+      todoStore.dispatch({ type: 'DEL_TODO', index: 0 })
+    }
+
     if (typeof onClick === 'function') {
       onClick('key')
     }
@@ -58,6 +76,8 @@ const OperationPanel: React.FC<IProps> = (props) => {
   return (
     <div className={`${styles['operation-panel']} ${className}`}>
       {getOperationBtn()}
+      {props.children}
+      <span>{count}</span>
     </div>
   )
 }

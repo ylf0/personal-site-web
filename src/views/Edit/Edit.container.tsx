@@ -1,6 +1,6 @@
 import React from 'react'
 
-import OperationPanel from '@/components/OperationPanel/index.component'
+import Button from '@/components/Button/Button.component'
 
 import styles from './Edit.module.scss'
 
@@ -10,17 +10,11 @@ const Edit: React.FC<IProps> = () => {
 
   return (
     <div className={styles.edit}>
-      <OperationPanel className={styles['operation-panel']} />
-      <div className={styles['edit-area']}>
-        <textarea
-          placeholder="标题..."
-          spellCheck={false}
-        />
-        <textarea
-          placeholder="内容..."
-          spellCheck={false}
-        />
-      </div>
+      <span>How are you :)</span>
+      <Button
+        name="Great Button"
+        onClick={() => {}}
+      />
     </div>
   )
 }
