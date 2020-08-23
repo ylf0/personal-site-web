@@ -9,7 +9,7 @@ import Note from './views/Note/Note.container'
 import Edit from './views/Edit/Edit.container'
 import About from './views/About/About.container'
 import NotFound from './views/NotFound/NotFound.container'
-import Login from './views/Login/Login.component'
+import Login from './views/Login'
 import './App.css';
 
 function App() {

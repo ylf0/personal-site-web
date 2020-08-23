@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Button from '@/components/Button/Button.component'
+import Button from '@/components/Button'
 
 import styles from './Edit.module.scss'
 

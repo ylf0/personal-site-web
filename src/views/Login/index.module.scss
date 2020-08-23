@@ -1,0 +1,38 @@
+.login {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+
+  .wall, .form {
+    box-sizing: border-box;
+    transition: transform .3s;
+  }
+
+  .wall {
+    width: 60vw;
+  }
+  .form {
+    width: 40vw;
+    background-color: #3da8f5;
+
+    .title {}
+  }
+
+  .wall-right {
+    transform: translateX(40vw);
+  }
+  .form-left {
+    transform: translateX(-60vw);
+  }
+}
+
+.input-with-label {
+  .label {
+    font-size: 16px;  
+  }
+  input {
+    margin-top: 8px;
+    width: 100%;
+    max-width: 100px;
+  }
+}
