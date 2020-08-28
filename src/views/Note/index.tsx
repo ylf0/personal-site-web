@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { Cover, Input, Modal } from '../../components'
 import { getNoteBook } from '../../api/notebook.api'
-import styles from './Note.module.scss'
+import styles from './index.module.scss'
 
 interface IState {
   newNoteName: string

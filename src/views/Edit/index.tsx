@@ -2,7 +2,7 @@ import React from 'react'
 
 import Button from '@/components/Button'
 
-import styles from './Edit.module.scss'
+import styles from './index.module.scss'
 
 interface IProps {}
 
